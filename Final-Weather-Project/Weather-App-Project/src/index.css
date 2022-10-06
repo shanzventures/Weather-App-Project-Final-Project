@@ -14,7 +14,15 @@ body {
   margin: 0 auto;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  padding: 20px auto;
+}
+
+.container {
+  max-width: 600px;
+  margin: 20px auto;
   padding: 20px;
+  border: 1px solid #767c7f;
+  border-radius: 10px;
 }
 
 h1 {
@@ -33,6 +41,7 @@ li {
   text-align: centre;
   font-size: small;
   list-style: none;
+  text-transform: capitalize;
 }
 
 .card {
@@ -71,5 +80,4 @@ strong {
   text-align: center;
   color: #585c5e;
   font-size: small;
-  margin: 0 auto;
 }
