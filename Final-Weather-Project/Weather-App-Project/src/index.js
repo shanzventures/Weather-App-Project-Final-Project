@@ -24,6 +24,7 @@ let months = [
   "Nov",
   "Dec",
 ];
+
 let days = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"];
 
 let day = days[now.getDay()];
