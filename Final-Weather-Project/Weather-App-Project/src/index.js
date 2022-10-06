@@ -70,8 +70,8 @@ function search(event) {
   h2.innerHTML = `${city}`;
 }
 
-let button = document.querySelector("#search-form");
-button.addEventListener("submit", search);
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", search);
 search("New York");
 
 /////////////////// Location button
@@ -86,3 +86,23 @@ function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
+
+///////////////
+
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = 66;
+}
+
+function convertToCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = 19;
+}
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", convertToFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", convertToCelsius);
