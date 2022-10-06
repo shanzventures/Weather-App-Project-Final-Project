@@ -34,7 +34,7 @@ let months = [
 
 let month = months[now.getMonth()];
 
-h1.innerHTML = `${day} ${date} ${month}, ${hours}:${minutes}, ${year}`;
+timeAndDate.innerHTML = `${day} ${date} ${month}, ${hours}:${minutes}, ${year}`;
 
 ///////// City Search
 

@@ -14,13 +14,12 @@ body {
   margin: 0 auto;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  padding: 20px auto;
 }
 
 .container {
   max-width: 600px;
   margin: 20px auto;
-  padding: 20px;
+  padding: 20px 0 20px 0;
   border: 1px solid #767c7f;
   border-radius: 10px;
 }
@@ -33,7 +32,7 @@ h1 {
 
 ul {
   margin: 0 auto;
-  padding: 10px 0 0;
+  padding: 10px 0 0 0;
 }
 
 li {
@@ -41,7 +40,6 @@ li {
   text-align: centre;
   font-size: small;
   list-style: none;
-  text-transform: capitalize;
 }
 
 .card {
@@ -49,6 +47,10 @@ li {
   text-align: center;
   margin: 0 auto;
   width: 18rem;
+}
+
+.card-group {
+  padding: 10px;
 }
 
 form {
@@ -76,6 +78,7 @@ strong {
 
 .footer {
   display: inline-block;
+  margin: 0 auto;
   width: 100%;
   text-align: center;
   color: #585c5e;
