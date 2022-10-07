@@ -24,7 +24,6 @@ let months = [
   "Nov",
   "Dec",
 ];
-
 let days = ["Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat"];
 
 let day = days[now.getDay()];
@@ -34,7 +33,7 @@ let year = now.getFullYear();
 ////////////////////
 
 let h1 = document.querySelector("h1");
-h1.innerHTML = `${day} ${date} ${month}, ${hours}:${minutes}, ${year}`;
+h1.innerHTML = `Last updated: ${day} ${date} ${month}, ${hours}:${minutes}, ${year}`;
 
 ///////// City Search
 
@@ -62,6 +61,7 @@ let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
 function search(event) {
+  event.preventDefault();
   let city = document.querySelector("#city-input").value;
   let apiKey = "8e9b90927c2534dbc9ab90cce8c00178";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -73,7 +73,7 @@ function search(event) {
 
 let button = document.querySelector("#search-form");
 button.addEventListener("submit", search);
-search("New York");
+search("Edinburgh");
 
 /////////////////// Location button
 
