@@ -30,8 +30,6 @@ let day = days[now.getDay()];
 let month = months[now.getMonth()];
 let year = now.getFullYear();
 
-////////////////////
-
 let h1 = document.querySelector("h1");
 h1.innerHTML = `Last updated: ${day} ${date} ${month}, ${hours}:${minutes}, ${year}`;
 
@@ -86,4 +84,18 @@ function searchLocation(position) {
 function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
+}
+
+///////////////// Conversion
+
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = 66;
+}
+
+function convertToCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = 19;
 }
