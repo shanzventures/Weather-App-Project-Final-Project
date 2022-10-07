@@ -1,4 +1,4 @@
-// Date / Time
+////////////////////////////////////////////////////////////////////////// Date / Time
 let now = new Date();
 let date = now.getDate();
 let hours = now.getHours();
@@ -33,7 +33,7 @@ let year = now.getFullYear();
 let h1 = document.querySelector("h1");
 h1.innerHTML = `Last updated: ${day} ${date} ${month}, ${hours}:${minutes}, ${year}`;
 
-///////// City Search
+//////////////////////////////////////////////////////////////////////////// Weather conditions
 
 function displayWeatherCondition(response) {
   document.querySelector(".city-input").innerHTML = response.data.name;
@@ -43,6 +43,8 @@ function displayWeatherCondition(response) {
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let iconElement = document.querySelector("#icon");
+
+  celsiusTemperature = response.data.main.temp;
 
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   conditionsElement.innerHTML = response.data.weather[0].description;
@@ -55,12 +57,11 @@ function displayWeatherCondition(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-let currentLocationButton = document.querySelector("#current-location-button");
-currentLocationButton.addEventListener("click", getCurrentLocation);
+///////////////////////////////////////////////////////////////////////////// Search City
 
 function search(event) {
   event.preventDefault();
-  let city = document.querySelector("#city-input").value;
+  let city = document.querySelector("#city-type-input").value;
   let apiKey = "8e9b90927c2534dbc9ab90cce8c00178";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeatherCondition);
@@ -71,9 +72,8 @@ function search(event) {
 
 let button = document.querySelector("#search-form");
 button.addEventListener("submit", search);
-search("Edinburgh");
 
-/////////////////// Location button
+/////////////////////////////////////////////////////////////////////////////// Location Button
 
 function searchLocation(position) {
   let apiKey = "8e9b90927c2534dbc9ab90cce8c00178";
@@ -86,16 +86,27 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-///////////////// Conversion
+let currentLocationButton = document.querySelector("#current-location-button");
+currentLocationButton.addEventListener("click", getCurrentLocation);
+
+/////////////////////////////////////////////////////////////////////// Conversion
 
 function convertToFahrenheit(event) {
   event.preventDefault();
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 66;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 function convertToCelsius(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 19;
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
+let celsiusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", convertToFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", convertToCelsius);
